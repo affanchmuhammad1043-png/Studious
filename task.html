@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+    <link rel="stylesheet" href="CSS/task.css" />
+  </head>
+  <body>
+    <div class="todo-container">
+      <div class="logo"><img src="icons/check_icon.svg" alt="">Study tasks</div>
+
+      <div class="todo-card">
+        <div class="heading">
+          <img class="heading__icon" src="icons/task.svg" alt="">
+          <div>
+            <h1>My Tasks</h1>
+            <p>Stay organized. Stay productive.</p>
+          </div>
+        </div>
+
+        <div class="input-area">
+          <input id="input-box" type="text" placeholder="What needs to be done?" />
+          <button class="add-btn" aria-label="Add task"><img src="icons/plus_icon.svg" alt=""></button>
+        </div>
+
+        <div class="task-list"></div>
+
+        <div class="footer">
+          <div class="footer__left">
+            <img src="icons/list_icon.svg" alt="">
+            <span class="total">Total Tasks</span>
+          </div>
+          <button class="clear-btn"><img src="icons/trash_icon.svg" alt="">Clear All</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/task.js"></script>
+  </body>
+</html>

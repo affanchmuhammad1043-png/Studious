@@ -1,0 +1,300 @@
+:root {
+  --primary-green: #356B45;
+  --strong-green: #285A38;
+  --light-green: #9DBF78;
+  --green-accent: #C0D99B;
+  --cream-bg: #F6EEDB;
+  --light-cream: #FFF9EA;
+  --dark-text: #253326;
+  --muted-text: #66705F;
+  --border: #D8D0B8;
+  --danger: #A8442F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--cream-bg);
+  color: var(--dark-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Main container */
+.todo-container {
+  width: 100%;
+  max-width: 650px;
+}
+
+/* Small label above the card */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 0 auto 22px;
+  padding: 6px 16px 6px 8px;
+  background: rgba(192, 217, 155, 0.35);
+  border: 1px solid var(--light-green);
+  border-radius: 999px;
+  color: var(--strong-green);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.logo img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Todo card */
+.todo-card {
+  padding: 36px;
+  background: var(--light-cream);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(53, 107, 69, 0.12);
+}
+
+/* Heading */
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.heading__icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.heading h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.heading p {
+  color: var(--muted-text);
+  font-size: 0.95rem;
+}
+
+/* Input */
+.input-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.input-area input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 18px;
+  background: var(--cream-bg);
+  color: var(--dark-text);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-area input:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 4px rgba(53, 107, 69, 0.15);
+}
+
+.input-area input::placeholder {
+  color: var(--muted-text);
+  opacity: 0.7;
+}
+
+/* Add button */
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  background: var(--primary-green);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.add-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.add-btn:hover {
+  background: var(--strong-green);
+  transform: translateY(-2px);
+}
+
+/* Empty message (shows when there are no tasks) */
+.task-list:empty::before {
+  content: "No tasks yet. Add your first one above.";
+  display: block;
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted-text);
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+}
+
+/* Task */
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  background: var(--cream-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.task:hover {
+  transform: translateX(4px);
+  border-color: var(--light-green);
+  box-shadow: 0 8px 20px rgba(53, 107, 69, 0.1);
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-green);
+  cursor: pointer;
+}
+
+.task-left span {
+  color: var(--dark-text);
+  font-size: 1rem;
+}
+
+/* Checked task */
+.input:checked + span {
+  color: var(--muted-text);
+  text-decoration: line-through;
+}
+
+/* Delete button */
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--muted-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.delete-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.delete-btn:hover {
+  color: var(--danger);
+  background: rgba(168, 68, 47, 0.1);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+.footer__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__left img {
+  width: 20px;
+  height: 20px;
+}
+
+.total {
+  color: var(--strong-green);
+  font-weight: 600;
+}
+
+/* Clear button */
+.clear-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--muted-text);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.clear-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.clear-btn:hover {
+  color: var(--danger);
+  background: rgba(168, 68, 47, 0.1);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 20px 14px;
+  }
+
+  .todo-card {
+    padding: 22px;
+  }
+
+  .heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .heading__icon {
+    width: 48px;
+    height: 48px;
+  }
+}

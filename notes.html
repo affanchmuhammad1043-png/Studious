@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes</title>
+  <link rel="stylesheet" href="CSS/notes.css">
+</head>
+<body>
+  <div class="notes-container">
+
+    <div class="logo"><img src="icons/check_icon.svg" alt="">Study notes</div>
+
+    <!-- Heading -->
+    <div class="heading">
+      <img class="heading__icon" src="icons/notes_icon.svg" alt="">
+      <div>
+        <h1>My Notes</h1>
+        <p>Capture ideas. Revise smarter.</p>
+      </div>
+    </div>
+
+    <!-- Quote banner (quote_bg.svg is used as its background image in CSS) -->
+    <blockquote class="quote-banner">
+      <p>Small notes today become big marks tomorrow.</p>
+      <span>Study tip</span>
+    </blockquote>
+
+    <!-- Search and new note -->
+    <div class="toolbar">
+      <div class="search">
+        <img src="icons/search_icon.svg" alt="">
+        <input type="search" placeholder="Search your notes..." aria-label="Search notes">
+      </div>
+      <button class="new-btn"><img src="icons/plus_icon.svg" alt="">New note</button>
+    </div>
+
+    <!-- Notes -->
+    <div class="notes-grid">
+
+      <article class="note">
+        <span class="note__tag">Maths</span>
+        <h3>Quadratic formula</h3>
+        <p>For ax² + bx + c = 0, x equals minus b, plus or minus the square root of b² − 4ac, all divided by 2a.</p>
+        <div class="note__footer">
+          <span class="note__date">12 Oct 2026</span>
+          <div class="note__actions">
+            <button aria-label="Edit note"><img src="icons/edit_icon.svg" alt=""></button>
+            <button class="danger" aria-label="Delete note"><img src="icons/trash_icon.svg" alt=""></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="note">
+        <span class="note__tag">Biology</span>
+        <h3>Photosynthesis</h3>
+        <p>Plants use light, water and carbon dioxide to make glucose and release oxygen. It happens in the chloroplasts.</p>
+        <div class="note__footer">
+          <span class="note__date">10 Oct 2026</span>
+          <div class="note__actions">
+            <button aria-label="Edit note"><img src="icons/edit_icon.svg" alt=""></button>
+            <button class="danger" aria-label="Delete note"><img src="icons/trash_icon.svg" alt=""></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="note">
+        <span class="note__tag">English</span>
+        <h3>Essay structure</h3>
+        <p>Start with an introduction, add three body paragraphs with one idea each, then finish with a clear conclusion.</p>
+        <div class="note__footer">
+          <span class="note__date">8 Oct 2026</span>
+          <div class="note__actions">
+            <button aria-label="Edit note"><img src="icons/edit_icon.svg" alt=""></button>
+            <button class="danger" aria-label="Delete note"><img src="icons/trash_icon.svg" alt=""></button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+:root {
+  --primary-green: #356B45;
+  --strong-green: #285A38;
+  --light-green: #9DBF78;
+  --green-accent: #C0D99B;
+  --cream-bg: #F6EEDB;
+  --light-cream: #FFF9EA;
+  --dark-text: #253326;
+  --border: #D8D0B8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: var(--cream-bg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 112px;
+  background: var(--light-cream);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Logo with description under the "Studious" text */
+.navbar__brand {
+  --logo-h: 72px;               /* change this one value to resize the logo */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar__logo {
+  display: block;
+  height: var(--logo-h);
+  width: auto;
+}
+
+.description {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  /* start under the "S" of Studious, with a clear gap below the text */
+  margin-left: calc(var(--logo-h) * 1.1);
+  margin-top: calc(var(--logo-h) * -0.04);
+  padding: 3px 12px 3px 4px;
+  background: rgba(192, 217, 155, 0.35);
+  border: 1px solid var(--light-green);
+  border-radius: 999px;
+  color: var(--strong-green);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Round green badge with a check mark, like the one in the logo */
+.description::before {
+  content: "";
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary-green);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFF9EA' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+}
+
+/* Menu links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__links a {
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: var(--dark-text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar__links a:hover {
+  background: var(--green-accent);
+  color: var(--strong-green);
+}
+
+.navbar__links a.active {
+  background: var(--primary-green);
+  color: var(--light-cream);
+}
+
+.navbar__links a.active:hover {
+  background: var(--strong-green);
+}
+
+.navbar a:focus-visible,
+.navbar__toggle:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
+}
+
+/* Hamburger (hidden on desktop) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--primary-green);
+  border-radius: 2px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar__brand {
+    --logo-h: 56px;
+  }
+
+  .description {
+    font-size: 0.65rem;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 20px 16px;
+    background: var(--light-cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar__links.open {
+    display: flex;
+  }
+}
+
+/* Area under the navbar where pages open */
+.content-frame {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 112px);
+  height: calc(100dvh - 112px);
+  border: 0;
+  background: var(--cream-bg);
+}

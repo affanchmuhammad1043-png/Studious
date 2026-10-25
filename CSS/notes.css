@@ -1,0 +1,320 @@
+:root {
+  --primary-green: #356B45;
+  --strong-green: #285A38;
+  --light-green: #9DBF78;
+  --green-accent: #C0D99B;
+  --cream-bg: #F6EEDB;
+  --light-cream: #FFF9EA;
+  --dark-text: #253326;
+  --muted-text: #66705F;
+  --border: #D8D0B8;
+  --danger: #A8442F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: var(--cream-bg);
+  color: var(--dark-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.notes-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Small label */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 0 auto 22px;
+  padding: 6px 16px 6px 8px;
+  background: rgba(192, 217, 155, 0.35);
+  border: 1px solid var(--light-green);
+  border-radius: 999px;
+  color: var(--strong-green);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.logo img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Heading */
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.heading__icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.heading h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.heading p {
+  color: var(--muted-text);
+  font-size: 0.95rem;
+}
+
+/* Quote banner with quote.svg as background image */
+.quote-banner {
+  margin-bottom: 28px;
+  padding: 30px 32px 30px 150px;
+  background: var(--primary-green) url("quote_bg.svg") no-repeat 28px 24px / 92px;
+  border-radius: 20px;
+  color: var(--light-cream);
+}
+
+.quote-banner p {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.quote-banner span {
+  display: block;
+  margin-top: 8px;
+  color: var(--green-accent);
+  font-size: 0.9rem;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.search {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.search img {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
+.search input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: var(--light-cream);
+  color: var(--dark-text);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search input:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 4px rgba(53, 107, 69, 0.15);
+}
+
+.search input::placeholder {
+  color: var(--muted-text);
+  opacity: 0.7;
+}
+
+.new-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 22px;
+  background: var(--primary-green);
+  border: none;
+  border-radius: 12px;
+  color: var(--light-cream);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.new-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.new-btn:hover {
+  background: var(--strong-green);
+  transform: translateY(-2px);
+}
+
+/* Notes grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.notes-grid:empty::before {
+  content: "No notes yet. Click New note to add your first one.";
+  grid-column: 1 / -1;
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted-text);
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+}
+
+/* Note card (small quote mark in the corner) */
+.note {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  background: var(--light-cream);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.note::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 38px;
+  height: 30px;
+  background: url("quote_bg.svg") no-repeat center / contain;
+  opacity: 0.55;
+}
+
+.note:hover {
+  transform: translateY(-4px);
+  border-color: var(--light-green);
+  box-shadow: 0 12px 24px rgba(53, 107, 69, 0.12);
+}
+
+.note__tag {
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 3px 12px;
+  background: var(--green-accent);
+  color: var(--strong-green);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.note h3 {
+  margin-bottom: 8px;
+  padding-right: 40px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.note p {
+  flex: 1;
+  color: var(--muted-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.note__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.note__date {
+  color: var(--muted-text);
+  font-size: 0.85rem;
+}
+
+.note__actions {
+  display: flex;
+  gap: 4px;
+}
+
+.note__actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.note__actions button img {
+  width: 18px;
+  height: 18px;
+}
+
+.note__actions button:hover {
+  background: var(--green-accent);
+}
+
+.note__actions button.danger:hover {
+  background: rgba(168, 68, 47, 0.12);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 20px 14px;
+  }
+
+  .heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .heading__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .quote-banner {
+    padding: 100px 22px 24px;
+    background-position: 22px 20px;
+    background-size: 64px;
+  }
+
+  .quote-banner p {
+    font-size: 1.15rem;
+  }
+
+  .new-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 22px;
+  }
+}
