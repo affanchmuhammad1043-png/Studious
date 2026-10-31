@@ -20,3 +20,13 @@ h1 {
     border: 2px solid #1f4d36;
     box-shadow: 0 6px 0 #1f4d36;
 }
+h1 {
+    /* keep your existing styles, then add: */
+    cursor: pointer;
+    transition: transform 0.8s ease, background-color 0.3s ease, color 0.3s ease;
+    transform: perspective(800px) rotateY(0deg);
+}
+
+h1:hover {
+    transform: perspective(800px) rotateY(360deg);
+}
