@@ -74,119 +74,23 @@
         </div>
       </article>
     </section>
+        <!-- ========== STUDY QUOTE ========== -->
+    <section class="quote" aria-label="Study quote">
+      <div class="quote__icon">
+        <img src="icons/qoute_icon.svg" alt="" width="28" height="28">
+      </div>
 
-    <!-- ========== MAIN GRID ========== -->
-    <div class="grid">
+      <figure class="quote__content">
+        <blockquote class="quote__text" id="quote-text">
+          The expert in anything was once a beginner.
+        </blockquote>
+        <figcaption class="quote__author" id="quote-author">— Helen Hayes</figcaption>
+      </figure>
 
-      <!-- Today's schedule -->
-      <section class="card" aria-labelledby="schedule-title">
-        <header class="card__head">
-          <h2 class="card__title" id="schedule-title">
-            <img src="icons/clock.svg" alt="" width="22" height="22"> Today's Schedule
-          </h2>
-          <a class="card__link" href="schedule.html">
-            View all <img src="icons/arrow-right.svg" alt="" width="16" height="16">
-          </a>
-        </header>
+    
+    </section>
 
-        <ul class="timeline" id="schedule-list">
-          <li class="event">
-            <span class="event__time">09:00</span>
-            <span class="event__bar"></span>
-            <div class="event__body">
-              <p class="event__title">Math lecture</p>
-              <p class="event__meta">Room 204 · 1h 30m</p>
-            </div>
-          </li>
-          <li class="event event--amber">
-            <span class="event__time">13:30</span>
-            <span class="event__bar"></span>
-            <div class="event__body">
-              <p class="event__title">JavaScript practice</p>
-              <p class="event__meta">Self study · 2h</p>
-            </div>
-          </li>
-          <li class="event event--clay">
-            <span class="event__time">18:00</span>
-            <span class="event__bar"></span>
-            <div class="event__body">
-              <p class="event__title">Study group</p>
-              <p class="event__meta">Library · 1h</p>
-            </div>
-          </li>
-        </ul>
-
-        <div class="empty" id="schedule-empty" hidden>Nothing scheduled today. Enjoy the free time!</div>
-      </section>
-
-      <!-- Upcoming tasks -->
-      <section class="card" aria-labelledby="tasks-title">
-        <header class="card__head">
-          <h2 class="card__title" id="tasks-title">
-            <img src="icons/tasks.svg" alt="" width="22" height="22"> Upcoming Tasks
-          </h2>
-          <a class="card__link" href="tasks.html">
-            View all <img src="icons/arrow-right.svg" alt="" width="16" height="16">
-          </a>
-        </header>
-
-        <ul class="task-list" id="task-list">
-          <li class="task">
-            <button class="task__check" type="button" aria-label="Mark task as done"></button>
-            <span class="task__title">Finish algebra worksheet</span>
-            <span class="tag tag--clay">Today</span>
-          </li>
-          <li class="task">
-            <button class="task__check" type="button" aria-label="Mark task as done"></button>
-            <span class="task__title">Read chapter 4 – Physics</span>
-            <span class="tag tag--amber">Tomorrow</span>
-          </li>
-          <li class="task">
-            <button class="task__check" type="button" aria-label="Mark task as done"></button>
-            <span class="task__title">Submit essay draft</span>
-            <span class="tag">Fri</span>
-          </li>
-          <li class="task is-done">
-            <button class="task__check is-done" type="button" aria-label="Mark task as not done"></button>
-            <span class="task__title">Revise vocabulary list</span>
-            <span class="tag">Done</span>
-          </li>
-        </ul>
-
-        <div class="empty" id="task-empty" hidden>No tasks yet. Add your first one.</div>
-      </section>
-
-      <!-- Recent notes -->
-      <section class="card" aria-labelledby="notes-title">
-        <header class="card__head">
-          <h2 class="card__title" id="notes-title">
-            <img src="icons/notes.svg" alt="" width="22" height="22"> Recent Notes
-          </h2>
-          <a class="card__link" href="notes.html">
-            View all <img src="icons/arrow-right.svg" alt="" width="16" height="16">
-          </a>
-        </header>
-
-        <ul class="note-list" id="notes-list">
-          <li class="note">
-            <p class="note__title">JS array methods</p>
-            <p class="note__text">map, filter and reduce return new values without changing the original array…</p>
-            <p class="note__date">Today</p>
-          </li>
-          <li class="note note--amber">
-            <p class="note__title">Physics formulas</p>
-            <p class="note__text">Velocity = distance ÷ time. Acceleration is the change in velocity over time…</p>
-            <p class="note__date">Yesterday</p>
-          </li>
-        </ul>
-
-        <div class="empty" id="notes-empty" hidden>No notes yet. Write your first one.</div>
-      </section>
-
-      <!-- Goals progress -->
-   >
-
-    </div>
+   
   </main>
 
   <script src="js/dashboard.js"></script>
