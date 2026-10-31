@@ -1,9 +1,22 @@
-h1{
+body {
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(10, 44, 10);
-    font-size: larger;
-    font-weight: bolder;
-    
+    background-color: #f5f0e6; /* cream/beige */
+}
+
+h1 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #1f4d36; /* forest green */
+    background-color: #e3f1e0; /* light green pill */
+    padding: 18px 40px;
+    border-radius: 999px;
+    border: 2px solid #1f4d36;
+    box-shadow: 0 6px 0 #1f4d36;
 }
