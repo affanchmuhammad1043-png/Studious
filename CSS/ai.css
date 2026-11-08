@@ -1,45 +1,115 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+    --cream: #f5f0e6;
+    --green-dark: #1f4d36;
+    --green-ink: #0b2f1d;
+    --green-light: #84c875;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
+    min-height: 100svh;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f0e6;
+    background-color: var(--cream);
 }
 
-h1 {
-    font-family: "Courier New", Consolas, monospace; /* needed so each letter has equal width */
-    font-size: clamp(1.1rem, 3.6vw, 2.6rem);
+/* ---------- The pill ---------- */
+.hero {
+    margin: 0;
+    font-family: "Courier New", Consolas, monospace; /* equal-width letters = smooth typing */
     font-weight: 700;
+    line-height: 1.25;
     text-align: left;
-    color: #1f4d36;
-    background-color: #e3f1e0;
-    padding: 18px 40px;
-    border-radius: 999px;
-    border: 2px solid #1f4d36;
-    box-shadow: 0 6px 0 #1f4d36;
-    min-width: 29ch; /* keeps the pill the same size while typing */
+    color: var(--green-ink);
+    background-color: var(--green-light);
+    border: 2px solid var(--green-dark);
+    border-radius: 12px;
+    box-shadow: 0 6px 0 var(--green-dark);
+    padding: clamp(14px, 4vw, 20px) clamp(20px, 6vw, 40px);
+
+    /* MOBILE: two lines. 6.4vw keeps the longest line inside the screen */
+    font-size: clamp(1.1rem, 6.4vw, 2.2rem);
 }
 
-.typing {
+/* Fixed line widths = the pill never changes size while typing */
+.line {
+    display: block;
+    width: calc(var(--chars) * 1ch + 0.4em);
+    white-space: nowrap;
+}
+.line-1 { --chars: 11; }   /* "Studious AI"       */
+.line-2 { --chars: 17; }   /* "is Coming soon!!!" */
+
+.text {
     display: inline-block;
     overflow: hidden;
-    white-space: nowrap;
     vertical-align: bottom;
     width: 0;
-    border-right: 3px solid #1f4d36; /* the cursor */
-    animation:
-        typing 6s steps(29) infinite,
-        blink 0.7s step-end infinite;
 }
 
-@keyframes typing {
+/* The cursor */
+.line::after {
+    content: "";
+    display: inline-block;
+    width: 0.1em;
+    height: 1em;
+    margin-left: 0.06em;
+    vertical-align: -0.12em;
+    background: var(--green-dark);
+    visibility: hidden;
+}
+
+/* ---------- Animation: one 9s loop ----------
+   line 1 types -> line 2 types -> pause -> line 2 erases -> line 1 erases */
+.line-1 .text  { animation: type1 9s steps(11) infinite; }
+.line-2 .text  { animation: type2 9s steps(17) infinite; }
+.line-1::after { animation: blink 0.8s step-end infinite, cursor1 9s linear infinite; }
+.line-2::after { animation: blink 0.8s step-end infinite, cursor2 9s linear infinite; }
+
+@keyframes type1 {
     0%   { width: 0; }
-    55%  { width: 29ch; }  /* fully written */
-    90%  { width: 29ch; }  /* pause so people can read it */
+    16%  { width: 11ch; }
+    94%  { width: 11ch; }
     100% { width: 0; }
 }
-
+@keyframes type2 {
+    0%, 16% { width: 0; }
+    46%     { width: 17ch; }
+    86%     { width: 17ch; }
+    94%     { width: 0; }
+    100%    { width: 0; }
+}
+@keyframes cursor1 {
+    0%, 16%      { visibility: visible; }
+    16.1%, 93.9% { visibility: hidden; }
+    94%, 100%    { visibility: visible; }
+}
+@keyframes cursor2 {
+    0%, 16%      { visibility: hidden; }
+    16.1%, 93.9% { visibility: visible; }
+    94%, 100%    { visibility: hidden; }
+}
 @keyframes blink {
-    50% { border-color: transparent; }
+    50% { opacity: 0; }
+}
+
+/* ---------- Bigger screens: one single line ---------- */
+@media (min-width: 40em) {
+    .hero {
+        font-size: clamp(1.6rem, 3.4vw, 2.8rem);
+        white-space: nowrap;
+    }
+    .line { display: inline-block; }
+    .line-2 { margin-left: 1ch; }  /* the space between the two parts */
+}
+
+/* ---------- Reduced motion: just show the text ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .text { animation: none !important; width: auto; }
+    .line::after { display: none; }
 }
